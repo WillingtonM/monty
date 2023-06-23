@@ -1,5 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -7,6 +8,21 @@
 #include <fcntl.h>
 #include <string.h>
 #include <ctype.h>
+
+/**
+ * struct stack_s - doubly linked list representation of a stack
+ * @n: integer
+ * @prev: points to the previous element of the stack
+ * @next: points to the next element of the stack
+ *
+ * Description: doubly linked list node structure
+ */
+typedef struct stack_s
+{
+    int n;
+    struct stack_s *prev;
+    struct stack_s *next;
+} stack_t;
 
 /**
  * struct instruction_s - opcode and its function
@@ -38,23 +54,6 @@ typedef struct bus_s
 } bus_t;
 extern bus_t bus;
 
-/**
- * struct stack_s - doubly linked list representation of a stack
- * @n: integer
- * @prev: points to the previous element of the stack
- * @next: points to the next element of the stack
- *
- * Description: doubly linked list node structure
- */
-typedef struct stack_s
-{
-	int n;
-	struct stack_s *prev;
-	struct stack_s *next;
-} stack_t;
-
-bus_t bus = {NULL, NULL, NULL, 0};
-
 int exec(char *content, stack_t **head, unsigned int counter, FILE *file);
 char *clean_line(char *content);
 void func_push(stack_t **head, unsigned int number);
@@ -62,7 +61,7 @@ void func_pall(stack_t **head, unsigned int number);
 void func_pint(stack_t **head, unsigned int number);
 void free_stack(stack_t *head);
 void func_pop(stack_t **head, unsigned int counter);
-void func_swap(stack_t **head, unsigned int counter);
+void func_add(stack_t **head, unsigned int counter);
 void func_nop(stack_t **head, unsigned int counter);
 void func_swap(stack_t **head, unsigned int counter);
 void func_div(stack_t **head, unsigned int counter);

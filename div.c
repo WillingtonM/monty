@@ -37,5 +37,5 @@ void func_div(stack_t **head, unsigned int counter)
 	aux_ = hd->next->n / hd->n;
 	hd->next->n = aux_;
 	*head = hd->next;
-	free(h);
+	free(hd);
 }
