@@ -10,6 +10,6 @@ void func_stack(stack_t **head, unsigned int counter)
 {
 	(void)head;
 	(void)counter;
-	bus.lifi = 0;
+	t_bus.lifi = 0;
 }
 

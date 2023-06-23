@@ -52,7 +52,7 @@ typedef struct bus_s
     char *content;
     int lifi;
 } bus_t;
-extern bus_t bus;
+extern bus_t t_bus;
 
 int exec(char *content, stack_t **head, unsigned int counter, FILE *file);
 char *clean_line(char *content);

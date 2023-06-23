@@ -21,8 +21,8 @@ void func_mod(stack_t **head, unsigned int counter)
 	if (length < 2)
 	{
 		fprintf(stderr, "L%d: can't mod, stack too short\n", counter);
-		fclose(bus.file);
-		free(bus.content);
+		fclose(t_bus.file);
+		free(t_bus.content);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
@@ -30,8 +30,8 @@ void func_mod(stack_t **head, unsigned int counter)
 	if (hd->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", counter);
-		fclose(bus.file);
-		free(bus.content);
+		fclose(t_bus.file);
+		free(t_bus.content);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
